@@ -1,0 +1,4 @@
+__pycache__/
+data/
+runs/
+yolo26n.pt
