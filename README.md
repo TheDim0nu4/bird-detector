@@ -118,14 +118,59 @@ mAP50 становить приблизно 74.2%, що свідчить про 
    `git clone https://github.com/TheDim0nu4/bird-detector`
    `cd bird-detector`
 
+2. Створити Conda-середовище: <br>
+
+   `conda create -n bird_detector_env python=3.11` <br>
+
+3. Активувати середовище: <br>
+
+   `conda activate bird_detector_env` <br>
+
+4. Встановити залежності: <br>
+
+   `python -m pip install -r requirements.txt` <br>
 
 
 
+## Запуск моделі на відео
+
+Готові ваги найкращої моделі лежать у `weights/best.pt`, тому навчати модель заново не потрібно.
+
+1. Під час запуску predict_video.py в якості аргументів вкажіть шлях де лежить відео і шлях куди хочете зберегти оброблене відео, приклад запуску:
+
+   ``python predict_video.py --input examples/input.mp4 --output examples/output.mp4`
+
+   вихідне відео input.mp4 лежить у папці examples/ а оброблене відео збережеться також у папку examples/ з назвою output.mp4
+
+Примітка: приклади оброблених відео уже лежать у папці examples/.
 
 
 
+## Донавчання моделі
+
+1. Підготуйте датасет (див. розділ нижче - ноутбук notebooks/data_preparation.ipynb). <br>
+
+2. Запустіть навчання: <br>
+
+   `python train.py` <br>
+
+Примітка: найкращі ваги моделі будуть збережені у папці weights, а результати навчання - у папку training_results.
 
 
+
+## Робота з Jupyter Notebooks 
+
+1. Переконайтесь, що середовище `bird_detector_env` активоване та встановлені залежності. <br>
+
+2. Виберіть ядро середовища в Jupyter: <br>
+
+   - Відкрийте ноутбуки та виберіть ядро, що відповідає створеному середовищу Conda (bird_detector_env).
+   - Після вибору ядра ви можете запускати комірки ноутбука та розпочати роботу над проєктом. 
+
+Примітка: проєкт має два ноутбуки:
+
+- notebooks/data_preparation.ipynb - підготовка датасету. Щоб повністю підготувати дані - достатньо просто запустити по черзі всі комірки ноутбука (після цього з'явиться папка data де будуть вихідні та оброблені дані)
+- notebooks/training_analysis.ipynb - аналіз результатів навчання з training_results/results.csv
 
 
 
